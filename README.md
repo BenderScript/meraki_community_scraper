@@ -3,6 +3,8 @@
 
 Welcome to this repository, where you will learn how to scrape a community forum for some amazing data that you can use to fine-tune your chatGPT model. This is a cool project that shows you how to build an AI solution from scratch, from data collection to model deployment.
 
+This is the first part in a series of a complete fine-tuning example from scratch. The second part is here: https://github.com/BenderScript/techGPT
+
 ## Scraping and Cleaning Data
 
 Before we get to the fun part of GenAI, we need to get some data first. And not just any data, but high-quality data that is relevant and useful for our task.

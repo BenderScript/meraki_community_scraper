@@ -17,13 +17,13 @@ def clean_training_data(user_message):
     messages.append({"role": "user", "content": user_message})
 
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo", messages=messages, temperature=0.5
+        response = openai.chat.completions.create(
+            model="gpt-4", messages=messages, temperature=0.5
         )
-        return response["choices"][0]["message"]["content"]
-    except openai.error.ServiceUnavailableError as e:
+        return response.choices[0].message.content
+    except openai.APIError as e:
         print(e)
-        print("Try again in a few seconds")
+        print("Timeout")
         return None
 
 
@@ -37,15 +37,11 @@ def rephrase_question(user_message):
     messages.append({"role": "user", "content": user_message})
 
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo", messages=messages, temperature=0.6
+        response = openai.chat.completions.create(
+            model="gpt-4", messages=messages, temperature=0.6
         )
-        return response["choices"][0]["message"]["content"]
-    except openai.error.ServiceUnavailableError as e:
-        print(e)
-        print("Try again in a few seconds")
-        return None
-    except openai.error.APIError as e:
+        return response.choices[0].message.content
+    except openai.APIError as e:
         print(e)
         print("Timeout")
         return None
@@ -61,15 +57,11 @@ def rephrase_solution(user_message):
     messages.append({"role": "user", "content": user_message})
 
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo", messages=messages, temperature=0.6
+        response = openai.chat.completions.create(
+            model="gpt-4", messages=messages, temperature=0.6
         )
-        return response["choices"][0]["message"]["content"]
-    except openai.error.ServiceUnavailableError as e:
-        print(e)
-        print("Try again in a few seconds")
-        return None
-    except openai.error.APIError as e:
+        return response.choices[0].message.content
+    except openai.APIError as e:
         print(e)
         print("Timeout")
         return None
